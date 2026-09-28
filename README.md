@@ -91,6 +91,19 @@ The table below summarizes the runs, all kept in the local `checkpoints/` direct
 
 The most recent revision, described in [`RL_NOTES.md`](RL_NOTES.md), adds a one-time −10 first-failure penalty. It also makes actor advantages 100 % team-based, sets GAE λ = 0.99, uses 256-step rollouts, and adds a 90 %-perfect curriculum gate. With these changes a 10 / 10 game is worth 30 undiscounted reward and a 9 / 10 game is worth 7. This revision is covered by unit tests but **has not been trained yet**.
 
+<details>
+<summary><b>Training curves and evaluation plots</b></summary>
+
+`perfect_priority_v1` training:
+<img src="media/training_perfect_priority_v1.png" alt="perfect_priority_v1 training progress">
+
+`all_ten_v1` training:
+<img src="media/training_all_ten_v1.png" alt="all_ten_v1 training progress">
+
+`all_ten_v1` held-out evaluation at slow speed 0.2 compared with the baselines:
+<img src="media/eval_all_ten_v1_speed_0.2.png" alt="all_ten_v1 held-out evaluation vs baselines">
+</details>
+
 ### Earlier task variant
 
 An earlier version of the environment gave slow minnows randomized speeds between 0.4 and 0.6. On a 10,000-game held-out test in that setting, the policy saved **9.73 / 10 on average with 84.1 % perfect games**, against 6.41 / 10 and 0 % perfect for the always-right baseline.
